@@ -137,6 +137,8 @@ def visualize_poses(
     ):
         image_height, image_width = image.shape[-2:]
         image = dataloading.convert_tensor_to_image(image)
+        light_green = [144, 238, 144]  
+        image = np.full(image.shape, light_green, dtype=np.uint8)
         image_paths.append(f"{tmp_vis_dir}/{frame_idx:06d}.jpg")
         Image.fromarray(image).save(image_paths[-1])
         frame_idx += 1
